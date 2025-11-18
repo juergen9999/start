@@ -1,5 +1,7 @@
+flask
 beautifulsoup4
 requests
 numpy
 pandas
 clean-text
+spacy
