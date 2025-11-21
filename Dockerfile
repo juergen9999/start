@@ -16,6 +16,6 @@ EXPOSE 5000
 
 RUN echo "vor App" 
 # Command to run your application  
-CMD ["python", "app.py"]
+# CMD ["python", "app.py"]
 
 RUN echo "nach App"
