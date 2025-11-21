@@ -13,6 +13,9 @@ COPY . .
  
 # Expose the port the app runs on  
 EXPOSE 5000  
- 
+
+RUN echo "vor App" 
 # Command to run your application  
 CMD ["python", "app.py"]
+
+RUN echo "nach App"
