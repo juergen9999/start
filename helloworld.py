@@ -1,21 +1,17 @@
-'''
-Created on 04-Sep-2019
+import os
 
-@author: bkadambi
-'''
 
-# -*- coding: UTF-8 -*-
-"""
-hello_flask: First Python-Flask webapp
-"""
-from flask import Flask  # From module flask import class Flask
-app = Flask(__name__)    # Construct an instance of Flask class for our webapp
 
-@app.route('/')   # URL '/' to be handled by main() route handler
-def main():
-    """Say hello"""
-    return 'Hello, world!'
+workers = int(os.environ.get('GUNICORN_PROCESSES', '2'))
 
-if __name__ == '__main__':  # Script executed directly?
-    print("Hello World! Built with a Docker file.")
-    app.run(host="0.0.0.0", port=5000, debug=True,use_reloader=True)  # Launch built-in web server and run this Flask webapp
+threads = int(os.environ.get('GUNICORN_THREADS', '4'))
+
+# timeout = int(os.environ.get('GUNICORN_TIMEOUT', '120'))
+
+bind = os.environ.get('GUNICORN_BIND', '0.0.0.0:8080')
+
+
+
+forwarded_allow_ips = '*'
+
+secure_scheme_headers = { 'X-Forwarded-Proto': 'https' }
